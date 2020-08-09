@@ -7,16 +7,33 @@
 
 </head>
 <body class="form-group">
-<h2>My Recipes!</h2>
-<table class="table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Description</th>
-    </tr>
-    <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipe.id}">123</td>
-        <td th:text="${recipe.description}">Tasty Goodnees</td>
-    </tr>
-</table>
+<nav class="navbar navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">My Recipes!</a>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky"></div>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4" role="main">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">List of Recipes</h1>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr th:each="recipe : ${recipes}">
+                        <td th:text="${recipe.id}">123</td>
+                        <td th:text="${recipe.description}">Tasty Goodnees</td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+    </main>
+</div>
+</div>
 </body>
 </html>
