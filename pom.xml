@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.2.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <name>sfg-recipes</name>
     <description>Project for SFG Recipes</description>
-
     <properties>
         <java.version>11</java.version>
         <bootstrap.version>4.5.0</bootstrap.version>
         <webjars-locator.version>0.40</webjars-locator.version>
         <jquery.version>3.5.1</jquery.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,7 +32,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -77,7 +75,6 @@
             </exclusions>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -118,7 +115,6 @@
     </build>
     <scm>
         <developerConnection>scm:git:git@github.com:petrubear/sfg-recipes.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
-
+        <tag>HEAD</tag>
+    </scm>
 </project>
