@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>sfg-recipes</name>
     <description>Project for SFG Recipes</description>
 
@@ -118,7 +118,7 @@
     </build>
     <scm>
         <developerConnection>scm:git:git@github.com:petrubear/sfg-recipes.git</developerConnection>
-      <tag>demo-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
