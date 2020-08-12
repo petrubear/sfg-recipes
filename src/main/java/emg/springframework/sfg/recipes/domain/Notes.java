@@ -2,10 +2,12 @@ package emg.springframework.sfg.recipes.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Data
+@ToString(exclude = {"recipe"})
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
