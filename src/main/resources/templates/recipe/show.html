@@ -10,13 +10,13 @@
 <body>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <div class="col-md-6 col-md-3 offset-md-3">
+        <div class="col-md-6 col-md-3 offset-3">
             <div class="panel-group">
-                <div class="card card-body">
+                <div class="card">
                     <div class="card-header text-white bg-primary mb-3">
                         <h1 class="card-title" th:text="${recipe.description}">Recipe Description Here!</h1>
                     </div>
-                    <div class="card-text">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <h5>Categories:</h5>
@@ -73,9 +73,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-body">
-                    <div class="card-header text-white bg-primary mb-3-heading">
-                        <h1 class="card-title">Ingredients</h1>
+                <div class="card">
+                    <div class="card-header text-white bg-primary">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h1 class="card-title">Ingredients</h1>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="btn btn-light" href="#"
+                                   role="button" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">View</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -90,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-body">
+                <div class="card">
                     <div class="card-header text-white bg-primary mb-3">
                         <h1 class="card-title">Directions</h1>
                     </div>
@@ -116,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-body">
+                <div class="card">
                     <div class="card-header text-white bg-primary mb-3">
                         <h1 class="card-title">Notes</h1>
                     </div>
