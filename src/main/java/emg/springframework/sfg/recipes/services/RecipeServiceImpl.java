@@ -31,7 +31,7 @@ public class RecipeServiceImpl implements RecipeService {
     public Set<Recipe> getRecipes() {
         log.debug("I'm in the service");
         var recipeSet = new HashSet<Recipe>();
-        recipeRepository.findAll().forEach(recipeSet::add);
+        recipeRepository.findAllByOrderByIdDesc().forEach(recipeSet::add);
         return recipeSet;
     }
 
