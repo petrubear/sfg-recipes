@@ -54,12 +54,14 @@ class RecipeServiceImplTest {
         var mockrecipe = new Recipe();
         var mockRecipeData = new HashSet<Recipe>();
         mockRecipeData.add(mockrecipe);
-        when(recipeRepository.findAll()).thenReturn(mockRecipeData);
+        //when(recipeRepository.findAll()).thenReturn(mockRecipeData);
+        when(recipeRepository.findAllByOrderByIdDesc()).thenReturn(mockRecipeData);
 
         var recipes = recipeService.getRecipes();
         assertThat(recipes.size()).isEqualTo(1);
 
-        verify(recipeRepository, times(1)).findAll();
+        //verify(recipeRepository, times(1)).findAll();
+        verify(recipeRepository, times(1)).findAllByOrderByIdDesc();
     }
 
     @Test

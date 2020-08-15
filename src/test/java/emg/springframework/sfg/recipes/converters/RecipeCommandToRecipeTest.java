@@ -7,7 +7,6 @@ import emg.springframework.sfg.recipes.commands.RecipeCommand;
 import emg.springframework.sfg.recipes.domain.Difficulty;
 import emg.springframework.sfg.recipes.domain.Recipe;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,7 +44,6 @@ public class RecipeCommandToRecipeTest {
     }
 
     @Test
-    @Disabled
     public void testEmptyObject() throws Exception {
         assertNotNull(converter.convert(new RecipeCommand()));
     }
