@@ -16,13 +16,13 @@
                   th:object="${ingredient}">
                 <input th:field="*{id}" type="hidden"/>
                 <div class="pannel-group">
-                    <div class="card">
+                    <div class="card border-primary">
                         <div class="card-header bg-primary">
                             <h1 class="card-title text-white">Edit Ingredient Information</h1>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-6 form-group">
                                     <label>Description:</label>
                                     <input class="form-control" th:field="*{description}" type="text"/>
                                 </div>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary mt-3" type="submit">Submit</button>
                 </div>
             </form>
         </div>

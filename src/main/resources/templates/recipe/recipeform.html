@@ -14,13 +14,13 @@
             <form method="post" th:action="@{/recipe/}" th:object="${recipe}">
                 <input th:field="*{id}" type="hidden"/>
                 <div class="pannel-group">
-                    <div class="card">
+                    <div class="card border-primary">
                         <div class="card-header text-white bg-primary mb-3">
                             <h1 class="card-title">Edit Recipe Information</h1>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-10 form-group">
+                                <div class="col-md-11 form-group">
                                     <label>Recipe Description:</label>
                                     <input class="form-control" th:field="*{description}" type="text"/>
                                 </div>
@@ -53,12 +53,14 @@
                                     <label>Cooktime:</label>
                                     <input class="form-control" th:field="*{cookTime}" type="text"/>
                                 </div>
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-6 form-group">
                                     <label>Difficulty:</label>
-                                    <select class="form-control">
-                                        <option>Easy</option>
-                                        <option>Medium</option>
-                                        <option>Hard</option>
+                                    <select class="form-control" th:field="*{difficulty}">
+                                        <option th:each="difficultyValue : ${T(emg.springframework.sfg.recipes.domain.Difficulty).values()}"
+                                                th:text="${difficultyValue.name()}"
+                                                th:value="${difficultyValue.name()}"
+                                        >val
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -71,20 +73,23 @@
                                     <label>Source:</label>
                                     <input class="form-control" th:field="*{source}" type="text"/>
                                 </div>
-                                <div class="col-md-3 form-group">
+                                <div class="col-md-6 form-group">
                                     <label>URL:</label>
                                     <input class="form-control" th:field="*{url}" type="text"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h1 class="card-header text-white bg-primary mb-3">Ingredients</h1>
-                            </div>
-                            <div class="col-md-10">
-                                <a class="btn btn-primary mb-3" href="#" role="button">Edit</a>
+                    <div class="card border-primary mt-3">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h1 class="card-title text-white bg-primary mb-3">Ingredients</h1>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-light mb-3" href="#"
+                                       role="button" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">View</a>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">
@@ -103,22 +108,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h1 class="card-header text-white bg-primary mb-3">Directions</h1>
+                    <div class="card border-primary mt-3">
+                        <div class="card-header bg-primary">
+                            <h1 class="card-title text-white mb-3">Directions</h1>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <textarea class="form-control" rows="3" th:field="*{directions}"></textarea></div>
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h1 class="card-header text-white bg-primary mb-3">Notes</h1>
+                    <div class="card border-primary mt-3">
+                        <div class="card-header bg-primary">
+                            <h1 class="card-title text-white bg-primary mb-3">Notes</h1>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
@@ -126,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary mt-3" type="submit">Submit</button>
                 </div>
             </form>
         </div>
