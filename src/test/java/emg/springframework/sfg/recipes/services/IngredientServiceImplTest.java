@@ -1,11 +1,14 @@
 package emg.springframework.sfg.recipes.services;
 
 import emg.springframework.sfg.recipes.commands.IngredientCommand;
+import emg.springframework.sfg.recipes.converters.IngredientCommandToIngredient;
 import emg.springframework.sfg.recipes.converters.IngredientToIngredientCommand;
+import emg.springframework.sfg.recipes.converters.UnitOfMeasureCommandToUnitOfMeasure;
 import emg.springframework.sfg.recipes.converters.UnitOfMeasureToUnitOfMeasureCommand;
 import emg.springframework.sfg.recipes.domain.Ingredient;
 import emg.springframework.sfg.recipes.domain.Recipe;
 import emg.springframework.sfg.recipes.repositories.RecipeRepository;
+import emg.springframework.sfg.recipes.repositories.UnitOfMeasureRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -20,21 +23,26 @@ import static org.mockito.Mockito.*;
 public class IngredientServiceImplTest {
 
     private final IngredientToIngredientCommand ingredientToIngredientCommand;
+    private final IngredientCommandToIngredient ingredientCommandToIngredient;
 
     @Mock
     RecipeRepository recipeRepository;
+
+    @Mock
+    UnitOfMeasureRepository unitOfMeasureRepository;
 
     IngredientService ingredientService;
 
     //init converters
     public IngredientServiceImplTest() {
         this.ingredientToIngredientCommand = new IngredientToIngredientCommand(new UnitOfMeasureToUnitOfMeasureCommand());
+        this.ingredientCommandToIngredient = new IngredientCommandToIngredient(new UnitOfMeasureCommandToUnitOfMeasure());
     }
 
     @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        ingredientService = new IngredientServiceImpl(ingredientToIngredientCommand, recipeRepository);
+        ingredientService = new IngredientServiceImpl(ingredientToIngredientCommand, ingredientCommandToIngredient, recipeRepository, unitOfMeasureRepository);
     }
 
     @Test
