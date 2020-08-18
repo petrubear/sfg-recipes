@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Image Upload Form</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-3 offset-3">
+            <div class="pannel-group">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary">
+                        <h1 class="card-title text-white">Upload a new recipe image</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="http:\\localhost" enctype="multipart/form-data" method="post"
+                                      th:action="@{'/recipe/' + ${recipe.id} + '/image'}">
+                                    <input class="custom-file-input" id="imagefile" name="imagefile" type="file">
+                                    <label class="custom-file-label mr-3 ml-3" for="imagefile">Select File</label>
+                                    <button class="btn btn-primary mt-3" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
