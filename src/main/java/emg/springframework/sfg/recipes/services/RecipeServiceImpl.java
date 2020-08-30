@@ -4,6 +4,7 @@ import emg.springframework.sfg.recipes.commands.RecipeCommand;
 import emg.springframework.sfg.recipes.converters.RecipeCommandToRecipe;
 import emg.springframework.sfg.recipes.converters.RecipeToRecipeCommand;
 import emg.springframework.sfg.recipes.domain.Recipe;
+import emg.springframework.sfg.recipes.exceptions.NotFoundException;
 import emg.springframework.sfg.recipes.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
@@ -37,7 +39,15 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe findById(Long id) {
-        return recipeRepository.findById(id).orElse(null);
+        //return recipeRepository.findById(id).orElse(null);
+        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
+
+        if (!recipeOptional.isPresent()) {
+            //throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found");
+        }
+
+        return recipeOptional.get();
     }
 
     @Override

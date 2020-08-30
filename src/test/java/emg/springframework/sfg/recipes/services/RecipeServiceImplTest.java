@@ -3,6 +3,7 @@ package emg.springframework.sfg.recipes.services;
 import emg.springframework.sfg.recipes.converters.RecipeCommandToRecipe;
 import emg.springframework.sfg.recipes.converters.RecipeToRecipeCommand;
 import emg.springframework.sfg.recipes.domain.Recipe;
+import emg.springframework.sfg.recipes.exceptions.NotFoundException;
 import emg.springframework.sfg.recipes.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import java.util.HashSet;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
@@ -69,6 +71,19 @@ class RecipeServiceImplTest {
         Long idToDelete = 1L;
         recipeService.deleteById(idToDelete);
         verify(recipeRepository, times(1)).deleteById(anyLong());
+
+    }
+
+    @Test
+    public void getRecipeByIdTestNotFound() throws Exception {
+
+        Optional<Recipe> recipeOptional = Optional.empty();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        assertThrows(NotFoundException.class, () -> {
+            recipeService.findById(1L);
+        });
 
     }
 }
