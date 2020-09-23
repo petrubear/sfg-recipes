@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/petrubear/sfg-recipes.svg?style=svg)](https://circleci.com/gh/petrubear/sfg-recipes)
-[![codecov](https://codecov.io/gh/petrubear/sfg-recipes/branch/master/graph/badge.svg)](https://codecov.io/gh/petrubear/sfg-recipes)
 
 # SFG-Recipes
 
